@@ -2,9 +2,9 @@
 import sys, subprocess
 
 scripts = {
-    "alexey.py": "Asshole Chef",
-    "agolikov.py": "Polish Chef",
-    "miguel.py": "The Drama Artist"
+    "alexey.py": "Asshole Chef (Alexey Feldgendler)",
+    "agolikov.py": "Polish Chef (Alexander Golikov)",
+    "miguel.py": "The Drama Artist (miguelephant)"
 }
 
 while True:
