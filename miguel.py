@@ -23,4 +23,34 @@ Finish with a blank line.
 """)
 
 user_prompt = ""
+while True:
+    line = input("")
+    if line == "":
+        break
+    if user_prompt != "":
+        user_prompt += "\n"
+    user_prompt += line
+
+stream = client.chat.completions.create(
+  model="gpt-4",
+  messages=[
+    {
+      "role": "system",
+      "content": system_prompt
+    },
+    {
+      "role": "user",
+      "content": user_prompt
+    },
+  ],
+  max_tokens=512,
+  frequency_penalty=0.5,
+  presence_penalty=0.5,
+  stream=True
+)
+
+for chunk in stream:
+  chunk_message = chunk.choices[0].delta.content or ""
+  print(chunk_message.replace("\n\n", "\n"), end="")
+
 print("\n")
